@@ -1,19 +1,27 @@
 <template>
   <div>
-    <Header />
-    <CouterClick/> 
+    <header>
+      <Header />
+      <Carousel />
+    </header>
+    <main>
+      <CarCard />
+    </main>
+    
   </div>
 </template>
 
 <script>
-import CouterClick from '@/components/CouterClick.vue'
 import Header from '@/components/Header.vue'
+import Carousel from '@/components/Carousel.vue'
+import CarCard from '@/components/CarCard.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
-    CouterClick,
+    Carousel,
+    CarCard,
   }
 }
 </script>
