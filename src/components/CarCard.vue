@@ -1,53 +1,81 @@
 <template>
-  <div class="container-xxl">
-    <div class="row border border-info py-2 bg-light">
-      <div class="col-12">
-        <span class="py-2">Mazda-6</span>
-      </div>
-      <div class="col-6">
-        <div class="d-flex justify-content-end">
-          <img
-            src="@/assets/mazda-6.png"
-            class="w-100 d-block car_style"
-            alt="car-mazda-6"
-          />
+  <div class="car_card">
+    <div class="container-xxl">
+      <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-center">
+          <div class="row w-50 border bg_color rounded card_hover">
+            <div class="col-12 py-3">
+              <span class="fs-3 fw-bolder">{{ car.name }}</span>
+            </div>
+            <div class="col-6">
+              <div class="d-flex justify-content-end">
+                <img
+                  :src="car.image"
+                  class="w-100 d-block car_style"
+                  alt="car-mazda-6"
+                />
+                {{ car.carPhoto }}
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex justify-content-start py-2">
+                <img src="@/assets/refueling.png" alt="refueling" />
+                <span class="px-2">{{ car.fuel }}</span>
+                <!-- <input type="text" placeholder="hfvdhfjbv"> -->
+              </div>
+              <div class="d-flex justify-content-start py-2">
+                <img src="@/assets/filling.png" alt="filling" />
+                <span class="px-2">{{ car.consumption }}</span>
+                <!-- <input type="text" placeholder="hfvdhfjbv"> -->
+              </div>
+              <div class="d-flex justify-content-start py-2">
+                <img src="@/assets/engine.png" alt="engine" />
+                <span class="px-2">{{ car.power }}</span>
+                <!-- <input type="text" placeholder="hfvdhfjbv"> -->
+              </div>
+              <div class="d-flex justify-content-start py-2">
+                <img src="@/assets/gear-shift.png" alt="engine" />
+                <span class="px-2">{{ car.shiftBox }}</span>
+                <!-- <input type="text" placeholder="hfvdhfjbv"> -->
+              </div>
+            </div>
+            <div class="col-12">
+              <div>Стоимость за сутки</div>
+              <button type="button" class="button2 b-green rot-135 my-2">
+                Забронировать
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col-6">
-        <div class="d-flex justify-content-start py-2">
-          <img src="@/assets/refueling.png" alt="refueling" />
-          <span class="px-2">Бензин</span>
-          <!-- <input type="text" placeholder="hfvdhfjbv"> -->
-        </div>
-        <div class="d-flex justify-content-start py-2">
-          <img src="@/assets/filling.png" alt="filling" />
-          <span class="px-2">9л на 100км</span>
-          <!-- <input type="text" placeholder="hfvdhfjbv"> -->
-        </div>
-        <div class="d-flex justify-content-start py-2">
-          <img src="@/assets/engine.png" alt="engine" />
-          <span class="px-2">2.0 л на 198 лс</span>
-          <!-- <input type="text" placeholder="hfvdhfjbv"> -->
-        </div>
-        <div class="d-flex justify-content-start py-2">
-          <img src="@/assets/gear-shift.png" alt="engine" />
-          <span class="px-2">Механика</span>
-          <!-- <input type="text" placeholder="hfvdhfjbv"> -->
-        </div>
-      </div>
-      <div class="col-12">
-        <div>Стоимость за сутки</div>
-        <button type="button" class="button2 b-green rot-135">
-          Орендовать
-        </button>
       </div>
     </div>
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  props: {
+    car: {
+      type: Object,
+      required: true,
+    },
+  },
+};
+</script>
 
 <style scoped>
+.card_hover {
+  transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+}
+
+.card_hover:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  -moz-transform: scale(1.03);
+  -o-transform: scale(1.03);
+}
 .car_style {
   max-width: 255px;
 }
@@ -79,5 +107,8 @@
 }
 .rot-135:hover {
   filter: hue-rotate(135deg);
+}
+.bg_color {
+  background-color: #fafafa;
 }
 </style>
