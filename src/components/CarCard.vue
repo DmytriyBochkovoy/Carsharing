@@ -1,5 +1,5 @@
 <template>
-  <div class="car_card">
+  <div @click="onCar" class="car_card">
     <div class="container-xxl">
       <div class="row mt-4">
         <div class="col-12 d-flex justify-content-center">
@@ -59,6 +59,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  methods: {
+    onCar() {
+      this.$router.replace('/car');
+    }
   },
 };
 </script>
