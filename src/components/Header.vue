@@ -1,4 +1,5 @@
 <template>
+  <Contacts />
   <div class="bg-light">
     <div class="container-xxl">
       <div class="row">
@@ -58,6 +59,21 @@
             </li>
             <li class="nav-item">
               <router-link to="/client_feedback" class="nav-link fw-bolder"
+                >Услуги</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link to="/client_feedback" class="nav-link fw-bolder"
+                >Обратная связь</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link to="/client_feedback" class="nav-link fw-bolder"
+                >О нас</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link to="/client_feedback" class="nav-link fw-bolder"
                 >Отзывы</router-link
               >
             </li>
@@ -65,21 +81,21 @@
         </div>
       </div>
     </nav>
-    <div class="banner">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-6">
-            <span class="descript"
-              >Аренда авто в Краматорске от 25$ в сутки</span
-            >
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
-<script></script>
+<script>
+import Contacts from '@/components/Contacts.vue';
+
+
+export default {
+  name: 'Header',
+  components: {
+    Contacts,
+  },
+}
+
+</script>
 
 <style scoped>
 a:active,
@@ -90,20 +106,11 @@ a {
 }
 
 .logo {
-  max-width: 200px;
+  max-width: 150px;
   max-height: 200px;
   border-radius: 20%;
 }
-.banner {
-  background: url(https://images7.alphacoders.com/110/1107477.jpg) no-repeat
-    center center/cover;
-}
-.descript {
-  line-height: 45px;
-  letter-spacing: 1.52px;
-  font-family: "Open Sans", sans-serif;
-  color: #fff;
-  font-size: 30px;
-  font-weight: 800;
+.bg_navbar {
+  background-color: #333333;
 }
 </style>
