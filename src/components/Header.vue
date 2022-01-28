@@ -1,10 +1,9 @@
 <template>
-  <Contacts />
   <div class="bg-light">
     <div class="container-xxl">
       <div class="row">
         <div class="col-4 d-flex align-items-center">
-          <a class="navbar-brand" href="#"
+          <a class="" href="#"
             ><img
               class="d-block w-100 logo"
               src="@/assets/logo.png"
@@ -16,16 +15,21 @@
             >Каршеринг в Краматорске</a
           >
         </div>
-        <div class="col-4 d-flex align-items-center">
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Поиск"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">Поиск</button>
-          </form>
+        <div class="col-4 col-md-4 d-flex align-items-center">
+          <div
+            class="d-flex justify-content-center pb-3 pb-md-0 w-100 align-items-center justify-content-sm-end"
+          >
+            <button
+              type="button"
+              @click="toggleModal"
+              class="btn btn-light  btn-outline-primary rounded-0 fs-7 mx-2"
+            >
+              Регистрация
+            </button>
+            <button type="button" class="btn btn-primary rounded-0 fs-7 mx-2">
+              Войти
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -43,10 +47,10 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div
-          class="collapse navbar-collapse align-items-center"
+          class="collapse navbar-collapse d-flex justify-content-end "
           id="navbarSupportedContent"
         >
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <router-link to="/" class="nav-link fw-bolder"
                 >Главная</router-link
@@ -73,7 +77,7 @@
               >
             </li>
             <li class="nav-item">
-              <router-link to="/client_feedback" class="nav-link fw-bolder"
+              <router-link to="/feedback" class="nav-link fw-bolder"
                 >Отзывы</router-link
               >
             </li>
@@ -81,20 +85,32 @@
         </div>
       </div>
     </nav>
+    <MyModal v-show="isModalShow" @close="toggleModal" />
   </div>
 </template>
 
 <script>
-import Contacts from '@/components/Contacts.vue';
-
+import MyModal from "@/components/Ui/MyModal.vue";
 
 export default {
-  name: 'Header',
-  components: {
-    Contacts,
-  },
-}
 
+  components: {
+    MyModal,
+  },
+
+  data() {
+    return {
+      isModalShow: false,
+    };
+  },
+
+  methods: {
+    toggleModal() {
+      this.isModalShow = !this.isModalShow;
+    },
+  },
+  
+};
 </script>
 
 <style scoped>
@@ -106,7 +122,7 @@ a {
 }
 
 .logo {
-  max-width: 150px;
+  max-width: 135px;
   max-height: 200px;
   border-radius: 20%;
 }

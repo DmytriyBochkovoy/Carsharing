@@ -26,6 +26,16 @@ const routes = [
     path: '/Registration',
     name: 'Registration',
     component: () => import('../components/Ui/MyModal.vue')
+  },
+  {
+    path: '/dialog',
+    name: 'MyDialog',
+    component: () => import('../components/Ui/MyDialog.vue')
+  },
+  {
+    path: '/feedback',
+    name: 'ClientFeedback',
+    component: () => import('../views/ClientFeedback.vue')
   }
 ]
 

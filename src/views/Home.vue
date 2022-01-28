@@ -1,14 +1,37 @@
 <template>
-  <div class="banner">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-6">
-          <span class="descript">Аренда авто в Краматорске от 25$ в сутки</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <SliderCarNews/>
+  <my-button  @click="toggleDialog"/>
+  <my-dialog v-show="isDialogShow" @close="toggleDialog"/>
 </template>
+
+<script>
+import MyDialog from '@/components/Ui/MyDialog.vue'
+import MyButton from '@/components/Ui/MyButton.vue'
+import SliderCarNews from '@/components/SliderCarNews.vue'
+
+export default {
+  name: 'Home',
+  components: {
+    MyDialog,
+    MyButton,
+    SliderCarNews,
+  },
+
+  data() {
+    return {
+      isDialogShow: false,
+    }
+  },
+
+  methods: {
+    toggleDialog() {
+      this.isDialogShow = !this.isDialogShow;
+    },
+  }
+
+}
+</script>
+
 
 <style scoped>
 .banner {
