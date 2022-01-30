@@ -1,6 +1,7 @@
 <template>
-  <div @click="onCar" class="car_card">
+  <div @click="$router.push(`/cars/${car.id}`)"  class="car_card">
     <div class="container-xxl">
+      <!-- <router-link to="/cars/1" class="nav-link fw-bolder">Автопарк</router-link> -->
       <div class="row mt-4">
         <div class="col-12 d-flex justify-content-center">
           <div class="row w-50 border bg_color rounded card_hover">
@@ -10,11 +11,10 @@
             <div class="col-6">
               <div class="d-flex justify-content-end">
                 <img
-                  :src="car.image"
+                  :src="car.image.image1"
                   class="w-100 d-block car_style"
                   alt="car-mazda-6"
                 />
-                {{ car.carPhoto }}
               </div>
             </div>
             <div class="col-6">
@@ -59,11 +59,13 @@ export default {
       type: Object,
       required: true,
     },
+
+    id: Number,
   },
   methods: {
-    onCar() {
-      this.$router.replace('/car');
-    }
+    // renderCarDescription() {
+    //   this.$route.required('')
+    // }
   },
 };
 </script>

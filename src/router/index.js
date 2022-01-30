@@ -14,13 +14,14 @@ const routes = [
   },
   {
     path: '/cars',
-    name: 'VehicleFleet',
-    component: () => import('../views/VehicleFleet.vue')
+    name: 'CarPark',
+    component: () => import('../views/CarPark.vue')
   },
   {
-    path: '/car',
+    path: '/cars/:id',
     name: 'Car',
-    component: () => import('../views/Car.vue')
+    component: () => import('../views/Car.vue'), 
+    props: true,
   },
   {
     path: '/Registration',
