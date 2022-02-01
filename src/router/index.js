@@ -26,7 +26,7 @@ const routes = [
   {
     path: '/Registration',
     name: 'Registration',
-    component: () => import('../components/Ui/MyModal.vue')
+    component: () => import('../components/Ui/MyRegistration.vue')
   },
   {
     path: '/dialog',

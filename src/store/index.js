@@ -1,6 +1,7 @@
 import  { createStore } from 'vuex';
 import cars from './cars';
-import testimonials from './testimonials'
+import testimonials from './testimonials';
+import users from './users';
 
 export default createStore ({
   namespaced: true,
@@ -8,5 +9,6 @@ export default createStore ({
   modules: {
     cars,
     testimonials,
+    users,
   },
 });
