@@ -76,7 +76,6 @@
 </template>
 
 <script>
-// import { defineComponent } from '@vue/composition-api'
 
 export default {
   props: {
@@ -85,17 +84,11 @@ export default {
       required: true,
     }
   },
-
-
-
   computed: {
     car () {
       return this.$store.getters['cars/getCar'](this.id);
     },
   },
-  created() {
-    this.$store.dispatch('cars/getCarById', this.id)
-  }
 }
 </script>
 

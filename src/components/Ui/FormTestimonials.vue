@@ -71,6 +71,10 @@ export default {
   padding: 0;
   border: 0;
 }
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
 .name-user,
 .textarea-form {
   width: 100%;
@@ -99,7 +103,7 @@ export default {
 }
 
 .modal-container {
-  width: 300px;
+  width: 500px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;

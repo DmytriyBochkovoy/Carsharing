@@ -3,6 +3,6 @@ export default {
     return state.cars
   },
   getCar (state) {
-    return id => state.collection[id];
+    return id => state.cars[id];
   }
 }

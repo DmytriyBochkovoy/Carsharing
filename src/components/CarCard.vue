@@ -63,9 +63,7 @@ export default {
     id: Number,
   },
   methods: {
-    // renderCarDescription() {
-    //   this.$route.required('')
-    // }
+    
   },
 };
 </script>

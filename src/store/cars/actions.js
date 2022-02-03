@@ -1,17 +1,21 @@
-
-import CarsArray from '../../domains/CarsArray.js'
+import { getDatabase, ref, child, get } from "firebase/database";
 
 export default {
   addCars(context) {
-    const cars = CarsArray.cars;
-    // context.commit("addCarsObj", cars);
+    const carsRef = ref(getDatabase());
 
-    cars.forEach( car => {
-      context.commit("addCar", car);
-    });
+    get(child(carsRef, `/cars`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          snapshot.val().forEach((car) => {
+            context.commit("addCar", car);
+          });
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   },
-  getCarById(context, id) {
-    const car = CarsArray.getCarById(id);
-    context.commit('addCarToCollection', car);
-  }
 };
