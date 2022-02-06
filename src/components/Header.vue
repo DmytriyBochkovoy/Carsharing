@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-light">
+  <div class="">
     <div class="container-xxl">
       <div class="row">
-        <div class="col-3 d-flex align-items-center">
+        <div class="col-4 d-flex align-items-center">
           <a class="" href="#"
             ><img
               class="d-block w-100 logo"
@@ -10,13 +10,14 @@
               alt="Company`s logo"
           /></a>
         </div>
-        <div class="col-3 d-flex align-items-center">
+        <div class="col-4 d-flex align-items-center">
           <a class="navbar-brand fw-bolder сompany_name" href="#"
-            >Каршеринг в Краматорске</a
+            >Прокат авто в Краматорске</a
           >
         </div>
-        <div class="col-4 col-md-4 d-flex align-items-center">
+        <div class="col-4 col-md-4 d-flex align-items-center justisy-content-end">
           <div
+            v-if="!$store.getters['users/isAuth']" 
             class="d-flex justify-content-center pb-3 pb-md-0 w-100 align-items-center justify-content-sm-end"
           >
             <button
@@ -25,7 +26,7 @@
                 toggleModal();
                 swechFlagBtnReg();
               "
-              class="btn btn-light btn-outline-primary rounded-0 fs-7 mx-2"
+              class="btn btn-light btn-outline-primary fs-7 mx-2"
             >
               Регистрация
             </button>
@@ -35,18 +36,19 @@
                 toggleModal();
                 swechFlagBtnLogin();
               "
-              class="btn btn-primary rounded-0 fs-7 mx-2"
+              class="btn btn-primary fs-7 mx-2"
             >
               Войти
             </button>
           </div>
-        </div>
-        <div class="col-2 d-flex align-items-center">
-          <div><img v-show="this.authUser" src="@/assets/user.png" alt=""></div>
+          <div v-else>
+            {{$store.getters['users/email']}} 
+            <button @click="$store.dispatch('users/logout')" class="btn btn btn-outline-danger fs-7 mx-2">Выйти</button>
+          </div>
         </div>
       </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg_navbar">
       <div class="container-xxl">
         <button
           class="navbar-toggler"
@@ -65,33 +67,33 @@
         >
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <router-link to="/" class="nav-link fw-bolder"
+              <router-link to="/" class="nav-link fw-bolder text-light"
                 >Главная</router-link
               >
             </li>
             <li class="nav-item">
-              <router-link to="/cars" class="nav-link fw-bolder"
+              <router-link to="/cars" class="nav-link fw-bolder text-light"
                 >Автопарк</router-link
               >
             </li>
             <li class="nav-item">
-              <router-link to="/client_feedback" class="nav-link fw-bolder"
+              <router-link to="/feedback" class="nav-link fw-bolder text-light"
+                >Отзывы</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link to="/ourServices" class="nav-link fw-bolder text-light"
                 >Услуги</router-link
               >
             </li>
             <li class="nav-item">
-              <router-link to="/client_feedback" class="nav-link fw-bolder"
+              <router-link to="/client_feedback" class="nav-link fw-bolder text-light"
                 >Обратная связь</router-link
               >
             </li>
             <li class="nav-item">
-              <router-link to="/client_feedback" class="nav-link fw-bolder"
+              <router-link to="/client_feedback" class="nav-link fw-bolder text-light"
                 >О нас</router-link
-              >
-            </li>
-            <li class="nav-item">
-              <router-link to="/feedback" class="nav-link fw-bolder"
-                >Отзывы</router-link
               >
             </li>
           </ul>
@@ -157,6 +159,6 @@ a {
   border-radius: 20%;
 }
 .bg_navbar {
-  background-color: #333333;
+  background-color: #0051cabb;
 }
 </style>

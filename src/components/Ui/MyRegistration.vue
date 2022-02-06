@@ -41,14 +41,20 @@
                   <button
                     v-show="this.registr"
                     class="btn btn-success fs-7 mx-3"
-                    @click="addUser(); $emit('close')"
+                    @click="
+                      addUser();
+                      $emit('close');
+                    "
                   >
                     Зарегистрироватся
                   </button>
                   <button
                     v-show="this.logIn"
                     class="btn btn-success fs-7 mx-3"
-                    @click="login(); $emit('close')"
+                    @click="
+                      login();
+                      $emit('close');
+                    "
                   >
                     Войти
                   </button>
@@ -84,20 +90,28 @@ export default {
 
   methods: {
     addUser() {
-      this.$store.dispatch("users/sign", {
+      this.$store
+        .dispatch("users/sign", {
           email: this.email,
           password: this.password,
-        }).then((result) => {
+        })
+        .then((result) => {
           console.log("Login result", result);
         });
     },
     login() {
-      this.$store.dispatch("users/login", {
+      this.$store
+        .dispatch("users/login", {
           email: this.email,
           password: this.password,
-        }).then((result) => {
+        })
+        .then((result) => {
           console.log("Login result", result);
         });
+      this.$store.dispatch("users/setPersistenceUser", {
+        email: this.email,
+        password: this.password,
+      });
     },
   },
 };

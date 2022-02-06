@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '../views/Home.vue';
 
 const routes = [
   {
@@ -24,9 +24,14 @@ const routes = [
     props: true,
   },
   {
+    path: '/ourServices',
+    name: 'OurServices',
+    component: () => import('../views/OurServices.vue'),
+  },
+  {
     path: '/Registration',
     name: 'Registration',
-    component: () => import('../components/Ui/MyRegistration.vue')
+    component: () => import('../components/Ui/MyRegistration.vue'),
   },
   {
     path: '/dialog',

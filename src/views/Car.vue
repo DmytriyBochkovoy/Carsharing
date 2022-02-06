@@ -1,5 +1,5 @@
 <template>
-  <div class="car">
+  <div v-if="car" class="car">
     <div class="container-xxl">
       <div class="row my-4">
         <div class="col-12 my-3">
@@ -89,6 +89,9 @@ export default {
       return this.$store.getters['cars/getCar'](this.id);
     },
   },
+  created () {
+    this.$store.dispatch('cars/getCar', this.id)
+  }
 }
 </script>
 

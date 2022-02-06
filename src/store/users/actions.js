@@ -2,17 +2,20 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
+  // inMemoryPersistence,
   // signInWithPopup,
   // GoogleAuthProvider,
   // signInWithRedirect,
 } from "firebase/auth";
+
 
 export default {
   login(context, data) {
     const auth = getAuth();
     return signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
-        context.state.uid = userCredential.user.uid;
+        context.state.user = userCredential.user;
         return "Success!";
       })
       .catch((error) => {
@@ -27,7 +30,7 @@ export default {
     const auth = getAuth();
     return createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
-        context.state.uid = userCredential.user.uid;
+        context.state.user = userCredential.user;
         return "Success!";
       })
       .catch((error) => {
@@ -38,24 +41,9 @@ export default {
       });
   },
 
-  // signGoogl() {
-  //   const auth = getAuth();
-  //   signInWithPopup(auth, provider)
-  //     .then((result) => {
-  //       const credential = GoogleAuthProvider.credentialFromResult(result);
-  //       const token = credential.accessToken;
-  //       const user = result.user;
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       const email = error.email;
-  //       const credential = GoogleAuthProvider.credentialFromError(error);
-  //     });
-  // },
-
   logout(context) {
-    context.state.email = "";
-    context.state.uid = "";
+    context.state.user = null;
+    const auth = getAuth();
+    signOut(auth);
   },
 };
