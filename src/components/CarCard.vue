@@ -40,7 +40,7 @@
       </div>
       <div class="col-12">
         <div>Стоимость за сутки</div>
-        <div>{{ car.price }}</div>
+        <div class="fs-5">{{ car.price }}$ / сутки</div>
         <BookCarButton />
       </div>
     </div>
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import BookCarButton from "../components/Ui/BookCarButton.vue";
+import BookCarButton from "@/components/Ui/BookCarButton.vue";
 export default {
   components: {
     BookCarButton,

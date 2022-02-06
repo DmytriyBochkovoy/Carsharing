@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 import router from "./router";
 import store from "./store";
+import VCalendar from 'v-calendar';
 
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -40,6 +41,7 @@ onValue(carsRef, (snapshot) => {
 });
 
 const app = createApp(App);
+app.use(VCalendar, {});
 app.use(router);
 app.use(store);
 app.mount("#app");

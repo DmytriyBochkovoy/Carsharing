@@ -1,4 +1,4 @@
-import { getDatabase, ref, child, get,} from "firebase/database";
+import { getDatabase, ref, child, get } from "firebase/database";
 
 export default {
   addCars(context) {
@@ -6,11 +6,10 @@ export default {
 
     get(child(carsRef, `/cars`))
       .then((snapshot) => {
-        console.log(23145);
         if (snapshot.exists()) {
           snapshot.val().forEach((car) => {
             context.commit("addCar", car);
-            context.commit("addCarsInCollection", car)
+            context.commit("addCarsInCollection", car);
           });
         } else {
           console.log("No data available");
